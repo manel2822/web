@@ -1,0 +1,259 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: -webkit-pictograph;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: "sidenav header" "sidenav main" "sidenav footer";
+    height: 205vh;
+}
+
+.header {
+    grid-area: header;
+    background-color: #709cb8;
+    ;
+}
+
+.sidenav {
+    grid-area: sidenav;
+    background-color: #4f81a0;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #709cb8;
+    ;
+}
+
+
+/* Cards */
+
+.main {
+    padding: 20px;
+    grid-area: main;
+    background-color: #f8f8f8;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* grid-template-rows: 300px 300px;*/
+    grid-template-rows: 190px 100px 100px 100px 210px 100px 50px;
+    grid-gap: 20px;
+    position: relative;
+}
+
+#card1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#card2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+#card3 {
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
+#card4 {
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+#card5 {
+    grid-row-start: 5;
+    grid-row-end: 8;
+}
+
+#card6 {
+    grid-row-start: 7;
+    grid-row-end: 10;
+}
+
+#card7 {
+    grid-row-start: 8;
+    grid-row-end: 10;
+}
+
+.card-content {
+    padding: 30px;
+}
+
+.card-header {
+    background-color: #7ea9c469;
+    height: 45px;
+    border-radius: 5px 5px 0 0;
+}
+
+.card-header p {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 12px;
+    left: 14px;
+    color: #6e6e6e;
+    font-size: 18px;
+}
+
+.card {
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 2px 2px rgba(0, 0, 0, 0.22);
+}
+
+#cardTable {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+.bigNumber {
+    border-radius: 10px;
+    height: 110px;
+    width: 150px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.bigNumber .spLabel {
+    margin-top: 20 px;
+    margin-bottom: 0 px;
+    text-align: center;
+    color: #fafafae8;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bigNumber .spPor {
+    margin: 0px;
+    text-align: center;
+    color: #fcfcfcf1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#sp1 {
+    background-color: #9c9c9c;
+}
+
+#sp2 {
+    background-color: #c44444;
+}
+
+#sp3 {
+    background-color: #ffbd05d1;
+}
+
+#sp4 {
+    background-color: #3cba9f;
+}
+
+#sp5 {
+    background-color: #d6755a;
+}
+
+#sp6 {
+    background-color: #477bac;
+}
+
+#sp7 {
+    background-color: #aa5698;
+}
+
+#menu {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu div {
+    border-bottom: 1px solid #fffacb;
+    background-color: #7ea9c469;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+#menu div:hover {
+    opacity: 95%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    background-color: #fffacb;
+}
+
+#menu div p {
+    background-color: #204166;
+    padding: 9px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    color: #fffacb;
+    font-size: 11pt;
+}
+
+#logo {
+    display: flex;
+}
+
+#logo * {
+    padding: 5px;
+    height: 50 px;
+}
+
+#logo p {
+    color: #fdf9d7;
+    padding: 0px;
+    margin: 12px 0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#dash-title {
+    margin: 0px;
+    color: #ecf0c6;
+    position: relative;
+    top: 11px;
+    left: 20px;
+    font-size: 22px;
+}
+
+button {
+    height: 32px;
+    cursor: pointer;
+    border: 0px;
+    color: rgb(75, 93, 116);
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    font-size: 11pt;
+}
+
+button:hover {
+    opacity: 95%;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+button:active {
+    opacity: 70%;
+    box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+    background-color: #648ca6
+}
+
+#btn_refresh {
+    background-color: #fffacb;
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 100px;
+}

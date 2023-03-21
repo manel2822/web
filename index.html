@@ -1,0 +1,210 @@
+﻿<!--<!doctype html
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <div style="height: 800px; width: 800px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="mixed-chart" width="800" height="450"></canvas>
+
+
+        </div>
+    </div>
+    <div style="height: 500px; width: 900px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="doughnut-chart" width="800" height="450"></canvas>
+
+        </div>
+    </div>
+    <div style="height: 500px; width: 800px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="line-chart" width="800" height="450"></canvas>
+        </div>
+    </div>
+    <div style="height: 500px; width: 800px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
+        </div>
+    </div>
+    <div style="height: 500px; width: 800px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="pie-chart" width="300" height="450"></canvas>
+        </div>
+
+    </div>
+    <div style="height: 300px; width: 300px; border:1px solid red; display:inline; float:left">
+        <div style="height: 100%; width: 100%; border:1px solid black">
+            <canvas id="bar-chart" width="300" height="300"></canvas>
+
+
+        </div>
+    </div>
+
+    <button onclick="loadData()">
+				Load
+		</button>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
+
+-->
+<!doctype html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+    <meta name="viewNumt" content="width=device-width, initial-scale=1, minimum-scale=1" />
+</head>
+
+<body>
+    <div class="grid-container">
+        <header class="header">
+            <p id="dash-title">
+                Dashboard Pravan university v 1.0.0
+            </p>
+            <button id="btn_refresh" onclick="loadData()">
+				Actualiser
+			</button>
+        </header>
+        <aside class="sidenav">
+            <div id="logo">
+                <img src="{{url_for('static', filename='img/logo.png')}}" height="40px" width="40px" />
+                <p style="display:inline">Pravan</p>
+            </div>
+            <div id="menu">
+                <div>
+                    <p>Summary</p>
+                </div>
+                <div>
+                    <p>Add</p>
+                </div>
+                <div>
+                    <p>Details</p>
+                </div>
+                <div>
+                    <p>Logout</p>
+                </div>
+            </div>
+        </aside>
+        <main class="main">
+            <div class="card" id="card1">
+                <div class="card-header">
+                    <p>Summary of student success rate in each specialty</p>
+                </div>
+
+                <div class="card-content" id="cardTable">
+                    <div class="bigNumber" id="sp1">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp2">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp3">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp4">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp5">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp6">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                    <div class="bigNumber" id="sp7">
+                        <p class="spLabel"></p>
+                        <p class="spPor"></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- <div class="card" id="card2">
+                 <div class="card-header">
+                    <p>Line Chart: Predicted feild studentnumberinevery year</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="linechart" width="800" height="300"></canvas> 
+                </div>
+            </div>-->
+
+
+
+            <div class="card" id="card2">
+                <div class="card-header">
+                    <p>Analysis of the number of M & F in each specialty</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="bar-chart-grouped" width="700" height="290"></canvas>
+                </div>
+
+            </div>
+            <div class="card" id="card3">
+
+                <div class="card-header">
+                    <p>Analysis of admitted and failed students</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="mixed-chart" width="350" height="280"></canvas>
+                </div>
+            </div>
+
+            <div class="card" id="card4">
+                <div class="card-header">
+                    <p>The evolution of the number of students in each specialty over the years</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="linechart" width="700" height="280"></canvas>
+
+                </div>
+            </div>
+            <div class="card" id="card5">
+                <div class="card-header">
+                    <p>The Analysis of the number of students in each year</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="bar-chart" width="350" height="300"></canvas>
+                </div>
+
+            </div>
+            <div class="card" id="card6">
+                <div class="card-header">
+                    <p>The evolution of the means of specialties in each year</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="line-chart" width="700" height="450"></canvas>
+                </div>
+            </div>
+            <div class="card" id="card7">
+                <div class="card-header">
+                    <p>Analysis of the number of students failing in 2021</p>
+                </div>
+                <div class="card-content" id="cardTable">
+                    <canvas id="doughnut-chart" width="300" height="300"></canvas>
+                </div>
+            </div>
+
+
+        </main>
+        <footer class="footer"></footer>
+    </div>
+
+
+
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
